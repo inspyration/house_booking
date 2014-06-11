@@ -7,5 +7,5 @@ _logger_file_handler = logging.FileHandler('/tmp/booking-error.log')
 _logger_file_handler.setFormatter(_logger_formatter)
 _logger.addHandler(_logger_file_handler)
 
-# import res_config
+import res_config
 import booking
