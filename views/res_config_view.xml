@@ -22,14 +22,12 @@
                             </div>
                             <div>
                                 <label for="guarantee"/>
-                                <field name="bookguaranteeing_title" class="oe_inline"/>
+                                <field name="guarantee" class="oe_inline"/>
                             </div>
-                        </div>
                             <div>
                                 <label for="deposit"/>
                                 <field name="deposit" class="oe_inline"/>
                             </div>
-                        </div>
                         </div>
                     </group>
                     <separator string="Configure Voucher"/>
