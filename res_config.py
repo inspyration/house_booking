@@ -15,6 +15,12 @@ class booking_config_settings(osv.osv_memory):
             string="Voucher title",
             size=1024,
         ),
+        'guarantee': fields.integer(
+            string="Guarantee (%)",
+        ),
+        'deposit': fields.integer(
+            string="Deposit",
+        ),
     }
 
     def _default_company(self, cr, uid, context=None):
