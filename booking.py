@@ -22,10 +22,17 @@ class booking(osv.Model):
     ]
 
     def _get_guarantee(self, cr, uid, ids, field, arg, context=None):
+        # Get settings
+        setting_obj = self.pool.get('booking.config.settings')
+        config_ids = settings_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
+        if config_ids:
+            guarantee = setting_obj.read(cr, uid, config_ids[0], ['guarantee'], context=context)
+        else:
+            guarantee = 0
         res = {}
         for reserv in self.browse(cr, uid, ids, context=context):
-            if reserv.config_id and reserv.price > 0:
-                res[reserv.id] = int(round(reserv.price*reserv.config_id.guarantee/100, -2))
+            if reserv.price > 0:
+                res[reserv.id] = int(round(reserv.price*guarantee/100, -2))
             else:
                 res[reserv.id] = 0
         return res
