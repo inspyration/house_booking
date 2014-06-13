@@ -43,13 +43,25 @@ class booking(osv.Model):
         config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
         if config_ids:
             deposit = setting_obj.read(cr, uid, config_ids[0], ['deposit'], context=context)['deposit']
-            _logger.debug("deposit: %s" % (deposit))
         else:
             deposit = 0
         res = {}
         for reserv in self.browse(cr, uid, ids, context=context):
             if reserv.price > 0:
                 res[reserv.id] = deposit
+        return res
+
+    def _get_title(self, cr, uid, ids, field, arg, context=None):
+        # Get settings
+        setting_obj = self.pool.get('booking.config.settings')
+        config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
+        if config_ids:
+            booking_title = setting_obj.read(cr, uid, config_ids[0], ['booking_title'], context=context)['booking_title']
+        else:
+            booking_title = ""
+        res = {}
+        for reserv in self.browse(cr, uid, ids, context=context):
+            res[reserv.id] = booking_title
         return res
 
     def _get_balance_due(self, cr, uid, ids, field, arg, context=None):
@@ -133,6 +145,11 @@ class booking(osv.Model):
             _get_deposit,
             type='integer',
             string="Deposit",
+        ),
+        'voucher_title': fields.function(
+            _get_title,
+            type='char',
+            string="Voucher's title",
         ),
     }
 
