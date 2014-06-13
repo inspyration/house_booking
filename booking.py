@@ -24,9 +24,9 @@ class booking(osv.Model):
     def _get_guarantee(self, cr, uid, ids, field, arg, context=None):
         # Get settings
         setting_obj = self.pool.get('booking.config.settings')
-        config_ids = settings_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
+        config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
         if config_ids:
-            guarantee = setting_obj.read(cr, uid, config_ids[0], ['guarantee'], context=context)
+            guarantee = setting_obj.read(cr, uid, config_ids[0], ['guarantee'], context=context)['guarantee']
         else:
             guarantee = 0
         res = {}
@@ -35,6 +35,21 @@ class booking(osv.Model):
                 res[reserv.id] = int(round(reserv.price*guarantee/100, -2))
             else:
                 res[reserv.id] = 0
+        return res
+
+    def _get_deposit(self, cr, uid, ids, field, arg, context=None):
+        # Get settings
+        setting_obj = self.pool.get('booking.config.settings')
+        config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
+        if config_ids:
+            deposit = setting_obj.read(cr, uid, config_ids[0], ['deposit'], context=context)['deposit']
+            _logger.debug("deposit: %s" % (deposit))
+        else:
+            deposit = 0
+        res = {}
+        for reserv in self.browse(cr, uid, ids, context=context):
+            if reserv.price > 0:
+                res[reserv.id] = deposit
         return res
 
     def _get_balance_due(self, cr, uid, ids, field, arg, context=None):
@@ -114,10 +129,11 @@ class booking(osv.Model):
             type='integer',
             string="Balance due",
         ),
-        'config_id': fields.many2one(
-            'house_booking.config',
-            string="Booking configuration",
-        )
+        'deposit': fields.function(
+            _get_deposit,
+            type='integer',
+            string="Deposit",
+        ),
     }
 
     _order = 'create_date desc'
@@ -192,11 +208,9 @@ class booking(osv.Model):
         """
         if type(ids) != list:
             ids = [ids]
-        read = self.read(cr, uid, ids, ['price','config_id'], context=context)
+        read = self.read(cr, uid, ids, ['price'], context=context)
         if any(r['price'] <= 0 for r in read):
             raise osv.except_osv(_('Price not set !'), _("Booking price has to be set."))
-        if any(not r['config_id'] for r in read): 
-            raise osv.except_osv(_('No booking configuration!'), _("Please choose a booking configuration"))
         self.write(cr, uid, ids, {'state': 'approved'})
         self.message_post(cr, uid, ids, _('Booking <b>approved</b>'), context=context)
         
@@ -257,23 +271,3 @@ class booking(osv.Model):
         res = long == 0
         _logger.debug("res (true or false) : %s" % res)
         return res
-
-
-class BookingConfig(osv.Model):
-    _name = "house_booking.config"
-    _description = ""
-    
-    _columns = {
-        'name': fields.char(
-            string="Name",
-            help="Used for the voucher's title"
-        ),
-        'guarantee': fields.integer(
-            string="Guarantee (%)",
-        ),
-        'deposit': fields.integer(
-            string="Deposit",
-        ),
-    }
-
-

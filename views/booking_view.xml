@@ -42,12 +42,6 @@
             </field>
         </record>
 
-         <record id="action_house_booking_config" model="ir.actions.act_window">
-            <field name="name">Booking cinfiguration</field>
-            <field name="res_model">house_booking.config</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
 
 
 
@@ -68,11 +62,6 @@
 			parent="base.menu_base_config"
 			name="Booking"
             groups="base.group_no_one,group_booking_manager"/>
-
-		<menuitem id="menu_house_config" 
-			parent="house_booking.menu_booking_configs"
-			name="Config"
-			action="action_house_booking_config"/>
 
 
 
@@ -118,9 +107,9 @@
                         	<field name="partner_id"/>
                         	<field name="persons_number"/>
                         	<field name="create_date"/>
-                        	<field name="guarantee"/>
+                            <field name="guarantee"/>
+                            <field name="deposit"/>
                         	<field name="balance_due"/>
-                        	<field name="config_id"/>
                         </group>
                 	</sheet>
 	                <div class="oe_chatter">
