@@ -95,7 +95,7 @@
     <para style="terp_default_8">
       <font color="white"> </font>
     </para>
-    <para style="terp_header_Centre">Reservation</para>
+    <para style="terp_header_Centre">[[ o.voucher_title or "Reservation" ]]</para>
     <para style="terp_default_Centre_9">(Please return completed, dated, signed and accompanied by your deposit check)</para>
     <para style="terp_default_8">
       <font color="white"> </font>
@@ -178,8 +178,7 @@
           <para style="terp_default_Right_8">Deposit:</para>
         </td>
         <td>
-          <para style="terp_default_8">1000 € by check on arrival</para>
-          <para style="terp_default_8">You get it back 10 days after leaving, exect degradation</para>
+          <para style="terp_default_8">[[ o.deposit ]] € by check on arrival</para>
         </td>
       </tr>
       <tr>
@@ -192,10 +191,10 @@
       </tr>
       <tr>
         <td>
-          <para style="terp_default_Right_8">Advance payment 30%:</para>
+          <para style="terp_default_Right_8">Advance payment:</para>
         </td>
         <td>
-          <para style="terp_default_8">[[ o.deposit ]] € by check when booking</para>
+          <para style="terp_default_8">[[ o.guarantee ]] € by check when booking</para>
         </td>
       </tr>
       <tr>
@@ -234,9 +233,9 @@
           <para style="terp_default_Right_8">Address to send advance payment and balance:</para>
         </td>
         <td>
-          <para style="terp_default_8">Mme LANDAIS Jocelyne</para>
-          <para style="terp_default_8">57 lot les Colibris</para>
-          <para style="terp_default_8">97118 SAINT-FRANÇOIS</para>
+          <para style="terp_default_8">
+            <font color="white"> </font>
+          </para>
         </td>
       </tr>
       <tr>
@@ -244,7 +243,9 @@
           <para style="terp_default_Right_8">Check to:</para>
         </td>
         <td>
-          <para style="terp_default_8">Mr ou Mme LEMIEGRE (propriétaire)</para>
+          <para style="terp_default_8">
+            <font color="white"> </font>
+          </para>
         </td>
       </tr>
     </blockTable>
