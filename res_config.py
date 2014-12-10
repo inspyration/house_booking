@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from openerp.osv import fields, osv
 
-import logging
-_logger = logging.getLogger('INSPY_booking')
 
 class booking_config_settings(osv.osv_memory):
     _name = 'booking.config.settings'
@@ -42,10 +40,8 @@ class booking_config_settings(osv.osv_memory):
     def get_default_booking_title(self, cr, uid, fields, context=None):
         config_obj = self.pool.get('booking.config.settings')
         config_ids = config_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
-        _logger.debug("config_ids: %s" % (config_ids))
         if config_ids:
             config = config_obj.browse(cr, uid, config_ids[0], context=context)
-            _logger.debug("config: %s" % (config))
             if config:
                 return {'booking_title': config.booking_title}
         return {}
@@ -59,10 +55,8 @@ class booking_config_settings(osv.osv_memory):
     def get_default_guarantee(self, cr, uid, fields, context=None):
         config_obj = self.pool.get('booking.config.settings')
         config_ids = config_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
-        _logger.debug("config_ids: %s" % (config_ids))
         if config_ids:
             config = config_obj.browse(cr, uid, config_ids[0], context=context)
-            _logger.debug("config: %s" % (config))
             return {'guarantee': config.guarantee}
         return {}
 
@@ -75,10 +69,8 @@ class booking_config_settings(osv.osv_memory):
     def get_default_deposit(self, cr, uid, fields, context=None):
         config_obj = self.pool.get('booking.config.settings')
         config_ids = config_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
-        _logger.debug("config_ids: %s" % (config_ids))
         if config_ids:
             config = config_obj.browse(cr, uid, config_ids[0], context=context)
-            _logger.debug("config: %s" % (config))
             return {'deposit': config.deposit}
         return {}
 

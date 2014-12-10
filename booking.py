@@ -7,9 +7,6 @@ from openerp.tools.translate import _
 
 import operator
 
-import logging
-_logger = logging.getLogger('INSPY_booking')
-
 class booking(osv.Model):
     _name = "house_booking.booking"
     _description = "booking"
@@ -76,12 +73,7 @@ class booking(osv.Model):
         else: # departure_date
             f, h = operator.attrgetter('departure_day'), " 10:00:00"
 
-        for b in self.browse(cr, uid, ids, context=context):
-            _logger.debug("f(b, %s, %s)=%s" % (field, b.id, f(b)))
-
         result = {b.id: f(b) + h for b in self.browse(cr, uid, ids, context=context)}
-
-        _logger.debug("_date_to_datetime %s: %s" % (field, result))
 
         return result
 
@@ -178,10 +170,6 @@ class booking(osv.Model):
         Check availablity before creating.
         """
         arrival_date, departure_date, = values['arrival_day'] + " 16:00:00", values['departure_day'] + " 10:00:00"
-        _logger.info("Date arrivee : %s (%s)" % (arrival_date, type(arrival_date)))
-        _logger.info("Date depart : %s (%s)" % (departure_date, type(departure_date)))
-        _logger.info("Jour arrivee : %s (%s)" % (values['arrival_day'], type(values['arrival_day'])))
-        _logger.info("Jour depart  : %s (%s)" % (values['departure_day'], type(values['departure_day'])))
         if not self.check_availability(cr, uid, arrival_date, departure_date, context=context):
             raise osv.except_osv(_('Unavailable dates !'), _("Unable to book for the selected dates."))
         return osv.Model.create(self, cr, uid, values, context=context)
@@ -200,16 +188,13 @@ class booking(osv.Model):
 
         # Get the two dates (if it is true, we are sure that there is one and only one id in 'ids')
         if 'arrival_day' in values and 'departure_day' not in values:
-            _logger.debug("Only arrival_date")
             read = self.read(cr, uid, ids[0], ['departure_date'], context=context)
             arrival_date, departure_date = values['arrival_day'] + " 16:00:00", read['departure_date']
         elif 'departure_day' in values and 'arrival_day' not in values:
-            _logger.debug("Only date_départ")
             read = self.read(cr, uid, ids[0], ['arrival_date'], context=context)
             arrival_date, departure_date = read['arrival_date'], values['departure_day'] + " 10:00:00"
 
         if arrival_date is not None: # departure_date is not None too !
-            _logger.debug("Calcul de plage disponible en update !")
             # Checking available periods. (if it is true, we are sure that there is one and only one id in 'ids')
             if not self.check_availability(cr, uid, arrival_date, departure_date, current_id=ids[0], context=context):
                 raise osv.except_osv(('Unavailable dates !'), ("Unable to book for the selected dates."))
@@ -236,11 +221,8 @@ class booking(osv.Model):
     
     
     def send_email(self, cr, uid, ids, context=None):
-        _logger.info('================send email==================')
         template_id=self.pool.get('email.template').search(cr, uid, [('name', '=', 'House booking - Send by Email')], context=context)[0]
-        _logger.info('........template id..........', template_id)
         email_obj=self.pool.get('email.template').send_mail(cr, uid, template_id, ids[0], force_send=True)
-        _logger.info('email_obj................', email_obj)
     
     
     
@@ -272,19 +254,12 @@ class booking(osv.Model):
         
         sch = self.search(cr, uid, [], context=context)
         brw = self.browse(cr, uid, sch, context=context)
-        for b in brw:
-            _logger.debug("Dates courantes : %s, %s" % (b.arrival_date, b.departure_date))
-
 
         # Remove current booking.
         if current_id is not None:
-            _logger.debug("Rajout de l'identifiant : %s" % current_id)
             domaine.insert(0, ('id', '!=', current_id))
 
         search = self.search(cr, uid, domaine, context=context)
-        _logger.debug("------\nsearch : %s\n%s\n" % (search, domaine))
         long = len(search)
-        _logger.debug("len du search : %s" % long)
         res = long == 0
-        _logger.debug("res (true or false) : %s" % res)
         return res
