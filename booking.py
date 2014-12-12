@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import openerp
 from openerp.osv import fields, osv
-import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 
 import operator
 
 
-class booking(osv.Model):
+class Booking(osv.Model):
+    """Main model"""
+
     _name = "house_booking.booking"
+
     _description = "booking"
+
     _inherit = ['mail.thread']
 
     _states = [
@@ -19,24 +21,28 @@ class booking(osv.Model):
         ('denied', "Denied"),
     ]
 
-    def _get_guarantee(self, cr, uid, ids, field, arg, context=None):
-        # Get settings
+    def _get_advance_payment(self, cr, uid, ids, field, arg, context=None):
+        """Advance Payment depending on price"""
+        # TODO: Refaire la lecture de la configuration.
+        # TODO: Refaire en pythonique
         setting_obj = self.pool.get('booking.config.settings')
         config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
         if config_ids:
-            guarantee = setting_obj.read(cr, uid, config_ids[0], ['guarantee'], context=context)['guarantee']
+            advance_payment = setting_obj.read(cr, uid, config_ids[0], ['advance_payment'], context=context)['advance_payment']
         else:
-            guarantee = 0
+            advance_payment = 0
         res = {}
         for reserv in self.browse(cr, uid, ids, context=context):
             if reserv.price > 0:
-                res[reserv.id] = int(round(reserv.price*guarantee/100, -2))
+                res[reserv.id] = int(round(reserv.price*advance_payment/100, -2))
             else:
                 res[reserv.id] = 0
         return res
 
     def _get_deposit(self, cr, uid, ids, field, arg, context=None):
-        # Get settings
+        """Deposit"""
+        # TODO: Refaire la lecture de la configuration.
+        # TODO: Refaire en pythonique
         setting_obj = self.pool.get('booking.config.settings')
         config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
         if config_ids:
@@ -49,8 +55,26 @@ class booking(osv.Model):
                 res[reserv.id] = deposit
         return res
 
+    def _get_advance_ratio(self, cr, uid, ids, field, arg, context=None):
+        """Advance Payment ratio"""
+        # TODO: Refaire la lecture de la configuration.
+        # TODO: Refaire en pythonique
+        setting_obj = self.pool.get('booking.config.settings')
+        config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
+        if config_ids:
+            advance_payment = setting_obj.read(cr, uid, config_ids[0], ['advance_payment'], context=context)['advance_payment']
+        else:
+            advance_payment = 0
+        res = {}
+        for reserv in self.browse(cr, uid, ids, context=context):
+            res[reserv.id] = advance_payment
+        return res
+
     def _get_title(self, cr, uid, ids, field, arg, context=None):
-        # Get settings
+        """Return the reservation title"""
+        # TODO: Refaire la lecture de la configuration.
+        # TODO: Refaire en pythonique
+        # TODO: Le titre doit être traductible.
         setting_obj = self.pool.get('booking.config.settings')
         config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
         if config_ids:
@@ -63,15 +87,19 @@ class booking(osv.Model):
         return res
 
     def _get_balance_due(self, cr, uid, ids, field, arg, context=None):
+        """Return the difference between total price and advance payment"""
+        # TODO: Refaire en pythonique
         res = {}
         for reserv in self.browse(cr, uid, ids, context=context):
-            res[reserv.id] = int(reserv.price - reserv.guarantee)
+            res[reserv.id] = int(reserv.price - reserv.advance_payment)
         return res
 
     def _date_to_datetime(self, cr, uid, ids, field, arg, context=None):
+        """Convert date to datetime (with rules for arrival and departure)"""
+        # TODO: Refaire en pythonique
         if field == 'arrival_date':
             f, h = operator.attrgetter('arrival_day'), " 16:00:00"
-        else: # departure_date
+        else:  # departure_date
             f, h = operator.attrgetter('departure_day'), " 10:00:00"
 
         result = {b.id: f(b) + h for b in self.browse(cr, uid, ids, context=context)}
@@ -105,9 +133,9 @@ class booking(osv.Model):
             string="Departure date",
             store=True,
         ),
-        'create_date' : fields.datetime(
+        'create_date': fields.datetime(  # TODO: C'est quoi çà ?
             'Creation date',
-             readonly=True,
+            readonly=True,
         ),
         'persons_number': fields.integer(
             string="Number of Persons",
@@ -124,25 +152,35 @@ class booking(osv.Model):
         'price': fields.integer(
             string="Price of booking",
         ),
-        'guarantee': fields.function(
-            _get_guarantee,
+        'advance_payment': fields.function(
+            _get_advance_payment,
             type='integer',
             string="Guarantee",
+            store=True,
         ),
         'balance_due': fields.function(
             _get_balance_due,
             type='integer',
             string="Balance due",
+            store=True,
+        ),
+        'advance_ratio': fields.function(
+            _get_advance_ratio,
+            type='integer',
+            string="Advance Ratio",
+            store=True,
         ),
         'deposit': fields.function(
             _get_deposit,
             type='integer',
             string="Deposit",
+            store=True,
         ),
         'voucher_title': fields.function(
             _get_title,
             type='char',
             string="Voucher's title",
+            store=True,
         ),
     }
 
@@ -165,10 +203,9 @@ class booking(osv.Model):
         ),
     ]
 
-
     def create(self, cr, uid, values, context=None):
         """
-        Check availablity before creating.
+        Check availability before creating.
         """
         arrival_date, departure_date, = values['arrival_day'] + " 16:00:00", values['departure_day'] + " 10:00:00"
         if not self.check_availability(cr, uid, arrival_date, departure_date, context=context):
@@ -177,7 +214,7 @@ class booking(osv.Model):
 
     def write(self, cr, uid, ids, values, context=None):
         """
-        Check availablity before writing.
+        Check availability before writing.
         """
         # Can't change many booking dates at once.
         if type(ids) == list and len(ids) > 1 and ('arrival_date' in values or 'departure_date' in values):
@@ -200,10 +237,9 @@ class booking(osv.Model):
             if not self.check_availability(cr, uid, arrival_date, departure_date, current_id=ids[0], context=context):
                 raise osv.except_osv(('Unavailable dates !'), ("Unable to book for the selected dates."))
 
-#         self.message_post(cr, uid, ids, _('Booking <b>updated</b>'), context=context)
+        # self.message_post(cr, uid, ids, _('Booking <b>updated</b>'), context=context)
 
         return osv.Model.write(self, cr, uid, ids, values, context=context)
-
 
     def accept_booking(self, cr, uid, ids, context=None, *args):
         """
@@ -222,10 +258,10 @@ class booking(osv.Model):
     
     
     def send_email(self, cr, uid, ids, context=None):
-        template_id=self.pool.get('email.template').search(cr, uid, [('name', '=', 'House booking - Send by Email')], context=context)[0]
-        email_obj=self.pool.get('email.template').send_mail(cr, uid, template_id, ids[0], force_send=True)
-    
-    
+        """Send email"""
+        template_id = self.pool.get('email.template').search(cr, uid, [('name', '=', 'House booking - Send by Email')], context=context)[0]
+        email_obj = self.pool.get('email.template')
+        email_obj.send_mail(cr, uid, template_id, ids[0], force_send=True)
     
     def refuse_booking(self, cr, uid, ids, context=None, *args):
         """

@@ -2,7 +2,7 @@
 <openerp>
     <data>
 
-		<!-- Search -->
+        <!-- Search view -->
 
         <record id="view_house_booking_booking_filter" model="ir.ui.view">
             <field name="name">house_booking.booking.select</field>
@@ -17,7 +17,7 @@
                    <filter string="Pending" name="state_pending" domain="[('state','=','pending')]"/>
                    <filter string="Denied" name="state_denied" domain="[('state','=','denied')]"/>
                    <separator/>
-                   <filter string="Upcoming" name="state_avenir" domain="[('arrival_date','>=',context_today().strftime('%Y-%m-%d 00:00:00'))]"/>
+                   <filter string="Upcoming" name="state_upcoming" domain="[('arrival_date','>=',context_today().strftime('%Y-%m-%d 00:00:00'))]"/>
                    <separator/>
                    <group expand="0" string="Group by ...">
                        <filter string="Partner" domain="[]" context="{'group_by' : 'partner_id'}" />
@@ -25,8 +25,6 @@
                </search>
             </field>
         </record>
-
-
 
 
         <!-- Actions -->
@@ -38,38 +36,34 @@
             <field name="context">{"search_default_active":1}</field>
             <field name="search_view_id" ref="view_house_booking_booking_filter"/>
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Create yout first booking!</p>
+                <p class="oe_view_nocontent_create">Create your first booking!</p>
             </field>
         </record>
 
 
+        <!-- Menus -->
 
+        <menuitem id="menu_booking_main" 
+            parent="base.menu_base_partner"
+            name="Bookings"
+            sequence="2"
+            groups="group_booking_manager"/>
 
-        <!-- Menu -->
+        <menuitem id="menu_house_booking" 
+            parent="house_booking.menu_booking_main"
+            name="Bookings"
+            action="action_house_booking_booking"/>
 
-    	<menuitem id="menu_booking_main" 
-			parent="base.menu_base_partner"
-			name="Bookings"
-			sequence="2"
-			groups="group_booking_manager"/>
-
-		<menuitem id="menu_house_booking" 
-			parent="house_booking.menu_booking_main"
-			name="Bookings"
-			action="action_house_booking_booking"/>
-
-		<menuitem id="menu_booking_configs" 
-			parent="base.menu_base_config"
-			name="Booking"
+        <menuitem id="menu_booking_configs" 
+            parent="base.menu_base_config"
+            name="Booking"
             groups="base.group_no_one,group_booking_manager"/>
 
 
+        <!-- Tree View -->
 
-
-        <!-- Réservation Views -->
-
-		<record id="view_house_booking_booking_tree" model="ir.ui.view">
-            <field name="name">house_booking.booking.tree</field>
+        <record id="view_house_booking_booking_tree" model="ir.ui.view">
+            <field name="name">Booking tree</field>
             <field name="model">house_booking.booking</field>
             <field name="arch" type="xml">
                 <tree string="Bookings list">
@@ -79,46 +73,57 @@
                     <field name="departure_day"/>
                     <field name="persons_number"/>
                     <field name="price"/>
+                    <field name="partner_id"/>
                     <field name="state"/>
                 </tree>
             </field>
         </record>
 
-		<record id="view_house_booking_booking_form" model="ir.ui.view">
-            <field name="name">house_booking.booking.form</field>
+
+        <!-- Form view -->
+
+        <record id="view_house_booking_booking_form" model="ir.ui.view">
+            <field name="name">Booking form</field>
             <field name="model">house_booking.booking</field>
             <field name="arch" type="xml">
-                <form string="Réservation" version="7.0">
-                	<header>
-                		<button name="accept_booking" string="Accept booking" states="pending,denied" type="object" class="oe_highlight"/>
-                		<button name="refuse_booking" string="Refuse booking" states="pending,approved" type="object" class="oe_highlight"/>
-                		<!--button name="house_booking.report_voucher_fr" string="Print Voucher (french)" states="approved" type="action" icon="gtk-print"/>-->
-                		<button name="house_booking.report_voucher_en" string="Print Voucher" states="approved" type="action" icon="gtk-print"/>
-                		<field name="state" widget="statusbar" statusbar_visible="pending,approved"/>
-                	</header>
-                	<sheet>
-                		 <div class="oe_title">
+                <form string="Booking" version="7.0">
+                    <header>
+                        <button name="accept_booking" string="Accept booking" states="pending,denied" type="object" class="oe_highlight"/>
+                        <button name="refuse_booking" string="Refuse booking" states="pending,approved" type="object" class="oe_highlight"/>
+                        <button name="house_booking.report_voucher" string="Print Voucher" states="approved" type="action" icon="gtk-print"/>
+                        <field name="state" widget="statusbar" statusbar_visible="pending,approved"/>
+                    </header>
+                    <sheet>
+                         <div class="oe_title">
                             <label for="name" class="oe_edit_only" string="Name of booking"/>
                             <h1><field name="name" class="oe_inline"/></h1>
-                            <h2>From <field name="arrival_day" class="oe_inline"/> to <field name="departure_day" class="oe_inline"/></h2>
-                            <p><label for="price"/> <field name="price" class="oe_inline"/> €</p>
                         </div>
-                        <group>
-                        	<field name="partner_id"/>
-                        	<field name="persons_number"/>
-                        	<field name="create_date"/>
-                            <field name="guarantee"/>
-                            <field name="deposit"/>
-                        	<field name="balance_due"/>
+                        <div class="oe_title">
+                            <h2>From</h2><field name="arrival_day" class="oe_inline"/><h2>to</h2><field name="departure_day" class="oe_inline"/>
+                            <p><field name="create_date"/></p>
+                        </div>
+                        <group title="Customer information" colspan="4">
+                            <field name="partner_id"/>
+                            <field name="persons_number"/>
                         </group>
-                	</sheet>
-	                <div class="oe_chatter">
-	                    <field name="message_follower_ids" widget="mail_followers" groups="res.group_user"/>
-	                    <field name="message_ids" widget="mail_thread"/>
-	                </div>
+                        <group title="Payment information" colspan="4">
+                            <field name="price"/>
+                            <field name="deposit"/>
+                            <field name="advance_payment"/>
+                            <field name="advance_ratio"/>
+                            <field name="balance_due"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="res.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
                 </form>
             </field>
         </record>
+
+
+        <!-- Calendar view -->
 
         <record id="view_house_booking_booking_calendar" model="ir.ui.view">
             <field name="name">Booking Calendar</field>
@@ -130,9 +135,5 @@
             </field>
         </record>
 
-
-
-
-	</data>
+    </data>
 </openerp>
-            

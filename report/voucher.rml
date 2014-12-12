@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <document filename="test.pdf">
-  <template pageSize="(595.0,842.0)" title="Test" author="Martin Simon" allowSplitting="20">
+  <template pageSize="(595.0,842.0)" title="Test" author="Sébastien CHAZALLET" allowSplitting="20">
     <pageTemplate id="first">
       <frame id="first" x1="34.0" y1="28.0" width="530" height="786"/>
     </pageTemplate>
@@ -96,7 +96,7 @@
       <font color="white"> </font>
     </para>
     <para style="terp_header_Centre">[[ o.voucher_title or "Reservation" ]]</para>
-    <para style="terp_default_Centre_9">(Please return completed, dated, signed and accompanied by your deposit check)</para>
+    <para style="terp_default_Centre_9">(Please fill out this and return it dated and signed with the advance payment attached)</para>
     <para style="terp_default_8">
       <font color="white"> </font>
     </para>
@@ -134,7 +134,7 @@
     <blockTable colWidths="167.0,363.0" style="Tableau5">
       <tr>
         <td>
-          <para style="terp_default_Bold_9">Your contact:</para>
+          <para style="terp_default_Bold_9">Your contact information:</para>
         </td>
         <td>
           <para style="terp_default_8">
@@ -165,7 +165,7 @@
     <blockTable colWidths="167.0,363.0" style="Tableau4">
       <tr>
         <td>
-          <para style="terp_default_Bold_9">Useful informations:</para>
+          <para style="terp_default_Bold_9">Payment terms:</para>
         </td>
         <td>
           <para style="Standard">
@@ -183,7 +183,7 @@
       </tr>
       <tr>
         <td>
-          <para style="terp_default_Right_8">Rate:</para>
+          <para style="terp_default_Right_8">Total price:</para>
         </td>
         <td>
           <para style="terp_default_8">[[ o.price ]] €</para>
@@ -191,10 +191,10 @@
       </tr>
       <tr>
         <td>
-          <para style="terp_default_Right_8">Advance payment:</para>
+          <para style="terp_default_Right_8">Advance payment ([[ o.advance_ratio ]] %):</para>
         </td>
         <td>
-          <para style="terp_default_8">[[ o.guarantee ]] € by check when booking</para>
+          <para style="terp_default_8">[[ o.advance_payment ]] € by check, attached to this document</para>
         </td>
       </tr>
       <tr>
@@ -203,29 +203,6 @@
         </td>
         <td>
           <para style="terp_default_8">[[ o.balance_due ]] € two month before coming</para>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <para style="terp_default_Right_8">Kit 1st breakfast:</para>
-        </td>
-        <td>
-          <para style="terp_default_8">free</para>
-        </td>
-      </tr>
-    </blockTable>
-    <para style="Standard">
-      <font color="white"> </font>
-    </para>
-    <blockTable colWidths="167.0,364.0" style="Tableau2">
-      <tr>
-        <td>
-          <para style="terp_default_Bold_9">Term of payment:</para>
-        </td>
-        <td>
-          <para style="terp_default_8">
-            <font color="white"> </font>
-          </para>
         </td>
       </tr>
       <tr>
