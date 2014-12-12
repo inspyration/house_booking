@@ -21,24 +21,6 @@ class Booking(osv.Model):
         ('denied', "Denied"),
     ]
 
-    def _get_advance_payment(self, cr, uid, ids, field, arg, context=None):
-        """Advance Payment depending on price"""
-        # TODO: Refaire la lecture de la configuration.
-        # TODO: Refaire en pythonique
-        setting_obj = self.pool.get('booking.config.settings')
-        config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
-        if config_ids:
-            advance_payment = setting_obj.read(cr, uid, config_ids[0], ['advance_payment'], context=context)['advance_payment']
-        else:
-            advance_payment = 0
-        res = {}
-        for reserv in self.browse(cr, uid, ids, context=context):
-            if reserv.price > 0:
-                res[reserv.id] = int(round(reserv.price*advance_payment/100, -2))
-            else:
-                res[reserv.id] = 0
-        return res
-
     def _get_deposit(self, cr, uid, ids, field, arg, context=None):
         """Deposit"""
         # TODO: Refaire la lecture de la configuration.
@@ -70,6 +52,43 @@ class Booking(osv.Model):
             res[reserv.id] = advance_payment
         return res
 
+    def _get_advance_payment(self, cr, uid, ids, field, arg, context=None):
+        """Advance Payment depending on price"""
+        # TODO: Refaire la lecture de la configuration.
+        # TODO: Refaire en pythonique
+        setting_obj = self.pool.get('booking.config.settings')
+        config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
+        if config_ids:
+            advance_payment = setting_obj.read(cr, uid, config_ids[0], ['advance_payment'], context=context)['advance_payment']
+        else:
+            advance_payment = 0
+        res = {}
+        for reserv in self.browse(cr, uid, ids, context=context):
+            if reserv.price > 0:
+                res[reserv.id] = int(round(reserv.price*advance_payment/100, -2))
+            else:
+                res[reserv.id] = 0
+        return res
+
+    def _get_balance_due(self, cr, uid, ids, field, arg, context=None):
+        """Return the difference between total price and advance payment"""
+        # TODO: Refaire la lecture de la configuration.
+        # TODO: Refaire en pythonique
+        setting_obj = self.pool.get('booking.config.settings')
+        config_ids = setting_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
+        if config_ids:
+            advance_payment = setting_obj.read(cr, uid, config_ids[0], ['advance_payment'], context=context)['advance_payment']
+        else:
+            advance_payment = 0
+        res = {}
+        for reserv in self.browse(cr, uid, ids, context=context):
+            if reserv.price > 0:
+                res[reserv.id] = int(reserv.price - round(reserv.price*advance_payment/100, -2))
+            else:
+                res[reserv.id] = 0
+        return res
+        res = {}
+
     def _get_title(self, cr, uid, ids, field, arg, context=None):
         """Return the reservation title"""
         # TODO: Refaire la lecture de la configuration.
@@ -84,14 +103,6 @@ class Booking(osv.Model):
         res = {}
         for reserv in self.browse(cr, uid, ids, context=context):
             res[reserv.id] = booking_title
-        return res
-
-    def _get_balance_due(self, cr, uid, ids, field, arg, context=None):
-        """Return the difference between total price and advance payment"""
-        # TODO: Refaire en pythonique
-        res = {}
-        for reserv in self.browse(cr, uid, ids, context=context):
-            res[reserv.id] = int(reserv.price - reserv.advance_payment)
         return res
 
     def _date_to_datetime(self, cr, uid, ids, field, arg, context=None):
@@ -133,10 +144,6 @@ class Booking(osv.Model):
             string="Departure date",
             store=True,
         ),
-        'create_date': fields.datetime(  # TODO: C'est quoi çà ?
-            'Creation date',
-            readonly=True,
-        ),
         'persons_number': fields.integer(
             string="Number of Persons",
         ),
@@ -155,7 +162,7 @@ class Booking(osv.Model):
         'advance_payment': fields.function(
             _get_advance_payment,
             type='integer',
-            string="Guarantee",
+            string="Advance payment",
             store=True,
         ),
         'balance_due': fields.function(

@@ -13,9 +13,9 @@
                        filter_domain="['|',('name','ilike',self),('state','=',self)"/>
                    <filter string="Accepted or pending" name="active" domain="['|',('state','=','approved'),('state','=','pending')]"/>
                    <separator/>
-                   <filter string="Accepted" name="state_approved" domain="[('state','=','approved')]"/>
-                   <filter string="Pending" name="state_pending" domain="[('state','=','pending')]"/>
-                   <filter string="Denied" name="state_denied" domain="[('state','=','denied')]"/>
+                   <filter string="Accepted" name="state_approved" domain="[('state','=','approved')]" />
+                   <filter string="Pending" name="state_pending" domain="[('state','=','pending')]" />
+                   <filter string="Denied" name="state_denied" domain="[('state','=','denied')]" />
                    <separator/>
                    <filter string="Upcoming" name="state_upcoming" domain="[('arrival_date','>=',context_today().strftime('%Y-%m-%d 00:00:00'))]"/>
                    <separator/>
@@ -54,7 +54,7 @@
             name="Bookings"
             action="action_house_booking_booking"/>
 
-        <menuitem id="menu_booking_configs" 
+        <menuitem id="menu_booking_configs"
             parent="base.menu_base_config"
             name="Booking"
             groups="base.group_no_one,group_booking_manager"/>
@@ -67,14 +67,14 @@
             <field name="model">house_booking.booking</field>
             <field name="arch" type="xml">
                 <tree string="Bookings list">
-                    <field name="create_date"/>
-                    <field name="name"/>
-                    <field name="arrival_day"/>
-                    <field name="departure_day"/>
-                    <field name="persons_number"/>
-                    <field name="price"/>
-                    <field name="partner_id"/>
-                    <field name="state"/>
+                    <field name="create_date" />
+                    <field name="name" />
+                    <field name="arrival_day" />
+                    <field name="departure_day" />
+                    <field name="persons_number" />
+                    <field name="price" />
+                    <field name="partner_id" />
+                    <field name="state" />
                 </tree>
             </field>
         </record>
@@ -96,22 +96,20 @@
                     <sheet>
                          <div class="oe_title">
                             <label for="name" class="oe_edit_only" string="Name of booking"/>
-                            <h1><field name="name" class="oe_inline"/></h1>
+                            <h1><field name="name" class="oe_inline" /></h1>
+                            <p>From <field name="arrival_day" class="oe_inline" /> to <field name="departure_day" class="oe_inline" /></p>
+                            <p>Créé le <field name="create_date" class="oe_inline" readonly="1" /></p>
                         </div>
-                        <div class="oe_title">
-                            <h2>From</h2><field name="arrival_day" class="oe_inline"/><h2>to</h2><field name="departure_day" class="oe_inline"/>
-                            <p><field name="create_date"/></p>
-                        </div>
-                        <group title="Customer information" colspan="4">
-                            <field name="partner_id"/>
-                            <field name="persons_number"/>
+                        <group string="Customer information" col="4">
+                            <field name="partner_id" />
+                            <field name="persons_number" />
                         </group>
-                        <group title="Payment information" colspan="4">
-                            <field name="price"/>
-                            <field name="deposit"/>
-                            <field name="advance_payment"/>
-                            <field name="advance_ratio"/>
-                            <field name="balance_due"/>
+                        <group string="Payment information" col="4">
+                            <field name="price" />
+                            <field name="deposit" />
+                            <field name="advance_payment" />
+                            <field name="advance_ratio" />
+                            <field name="balance_due" />
                         </group>
                     </sheet>
                     <div class="oe_chatter">
@@ -130,7 +128,7 @@
             <field name="model">house_booking.booking</field>
             <field name="arch" type="xml">
                 <calendar string="Bookings calendar" color="state" date_start="arrival_date" date_stop="departure_date">
-                    <field name="name"/>
+                    <field name="name" />
                 </calendar>
             </field>
         </record>

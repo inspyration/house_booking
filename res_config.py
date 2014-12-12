@@ -16,8 +16,8 @@ class booking_config_settings(osv.osv_memory):
             string="Voucher title",
             size=1024,
         ),
-        'guarantee': fields.integer(
-            string="Guarantee (%)",
+        'advance_payment': fields.integer(
+            string="Advance payment (%)",
         ),
         'deposit': fields.integer(
             string="Deposit",
@@ -52,19 +52,19 @@ class booking_config_settings(osv.osv_memory):
         config = self.browse(cr, uid, ids[0], context)
         config_obj.write(cr, uid, config_ids[0], {'booking_title': config.booking_title})
 
-    def get_default_guarantee(self, cr, uid, fields, context=None):
+    def get_default_advance_payment(self, cr, uid, fields, context=None):
         config_obj = self.pool.get('booking.config.settings')
         config_ids = config_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
         if config_ids:
             config = config_obj.browse(cr, uid, config_ids[0], context=context)
-            return {'guarantee': config.guarantee}
+            return {'advance_payment': config.advance_payment}
         return {}
 
-    def set_default_guarantee(self, cr, uid, ids, context=None):
+    def set_default_advance_payment(self, cr, uid, ids, context=None):
         config_obj = self.pool.get('booking.config.settings')
         config_ids = config_obj.search(cr, uid, [], limit=1, order='id DESC', context=context)
         config = self.browse(cr, uid, ids[0], context)
-        config_obj.write(cr, uid, config_ids[0], {'guarantee': config.guarantee})
+        config_obj.write(cr, uid, config_ids[0], {'advance_payment': config.advance_payment})
 
     def get_default_deposit(self, cr, uid, fields, context=None):
         config_obj = self.pool.get('booking.config.settings')

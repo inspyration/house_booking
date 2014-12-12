@@ -1,13 +1,13 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* house_booking
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 8.0alpha1\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-16 14:40+0000\n"
-"PO-Revision-Date: 2014-05-16 14:40+0000\n"
+"POT-Creation-Date: 2014-12-12 21:43+0000\n"
+"PO-Revision-Date: 2014-12-12 21:43+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,95 +16,73 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: house_booking
-#: field:house_booking.booking,name:0
-msgid "Title"
-msgstr "Titre"
-
-#. module: house_booking
-#: model:email.template,report_name:house_booking.email_template_house_booking
-msgid "Villa 5 Guadeloupe - Booking"
-msgstr "Villa 5 Guadeloupe - Booking"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Your contact:"
-msgstr "Vos coordonnées :"
-
-#. module: house_booking
-#: code:addons/house_booking/booking.py:244
-#, python-format
-msgid "Booking <b>denied</b>"
-msgstr "Réservation <b>refusée</b>"
-
-#. module: house_booking
-#: field:house_booking.booking,message_unread:0
-msgid "Unread Messages"
-msgstr "Messages non-lus"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-msgid "Réservation"
-msgstr "Réservation"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-#: report:house_booking.voucher:0
-msgid "to"
-msgstr "au"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-msgid "Name of booking"
-msgstr "Nom de la réservation"
-
-#. module: house_booking
 #: model:email.template,body_html:house_booking.email_template_house_booking
-msgid "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+msgid "\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
 "    <p>Hello ${object.partner_id.name},</p>\n"
 "\n"
-"    <p>Your reservation from ${object.arrival_day} to ${object.departure_day} been accepted.</p>\n"
+"    <p>Your booking from ${object.arrival_day} to ${object.departure_day} has been accepted.</p>\n"
 "\n"
-"    <p>Attached please find your booking form.</p>\n"
+"    <p>Please find your booking form attached to this email.</p>\n"
+"\n"
 "    <p>Sincerely</p>\n"
-"    <p>Mr &amp; Mrs Lemiegre</p>\n"
+"    <p>InsPyration</p>\n"
 "\n"
-"</div>"
+"</div>            \n"
+"            "
 msgstr "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
 "    <p>Bonjour ${object.partner_id.name},</p>\n"
 "\n"
-"    <p>Votre réservation du ${object.arrival_day} au ${object.departure_day} est acceptée.</p>\n"
+"    <p>Votre réservation du ${object.arrival_day} au ${object.departure_day} a été approuvée.</p>\n"
 "\n"
-"    <p>Veuillez trouver ci-joint votre bon de réservation.</p>\n"
+"    <p>Veuillez trouver en pièce jointe votre bon de réservation.</p>\n"
+"\n"
 "    <p>Sincèrement</p>\n"
-"    <p>M. &amp; Mme Lemiegre</p>\n"
+"    <p>InsPyration</p></div>\n"
 "\n"
-"</div>"
+"</div>            \n"
+"            "
 
 #. module: house_booking
 #: report:house_booking.voucher:0
-msgid "Virginie SAINT-ETIENNE and her husband await you on the spot to explain the operation of the home alarm , alarm pool for handing the keys , establish an inventory input , receive the deposit check € 1,000 which you will exit if no damage is found ."
-msgstr "Virginie SAINT-ETIENNE et son mari vous attendront sur les lieux pour vous expliquer le fonctionnement de l'alarme maison, de l'alarme piscine, pour vous remettre les clés, établir l'état des lieux d'entrée et recevoir le chèque de caution de 1000 € qui vous sera rendu après état des lieux de sortie."
+msgid "%):"
+msgstr "%):"
+
+#. module: house_booking
+#: sql_constraint:house_booking.booking:0
+msgid "'Arrival date' should be before 'Departure date'"
+msgstr "La date d'arrivée doit précéder la date de départ"
+
+#. module: house_booking
+#: sql_constraint:house_booking.booking:0
+msgid "'Arrival day' should be before 'Departure day'"
+msgstr "Le jour d'arrivée doit précéder le jour de départ"
 
 #. module: house_booking
 #: report:house_booking.voucher:0
-msgid "Term of payment:"
-msgstr "Conditions de réglement :"
+msgid "(Please fill out this and return it dated and signed with the advance payment attached)"
+msgstr "(Merci de remplir ce formulaire et de le retourner daté et signé accompagné de votre acompte"
 
 #. module: house_booking
-#: selection:house_booking.booking,state:0
-msgid "Approved"
-msgstr "Approuvée"
+#: model:ir.actions.act_window,help:house_booking.action_house_booking_booking
+msgid "<p class=\"oe_view_nocontent_create\">Create your first booking!</p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">Creez votre première réservation !</p>            "
 
 #. module: house_booking
-#: view:house_booking.booking:0
-#: report:house_booking.voucher:0
-msgid "€"
-msgstr "€"
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
+msgid "Accept booking"
+msgstr "Réservation acceptée"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "06 90 53 06 22"
-msgstr "06 90 53 06 22"
+#: view:house_booking.booking:house_booking.view_house_booking_booking_filter
+msgid "Accepted"
+msgstr "Acceptée"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_filter
+msgid "Accepted or pending"
+msgstr "Acceptées ou en attente"
 
 #. module: house_booking
 #: report:house_booking.voucher:0
@@ -112,75 +90,34 @@ msgid "Address to send advance payment and balance:"
 msgstr "Adresse où envoyer l'acompte et le solde :"
 
 #. module: house_booking
-#: field:house_booking.booking,message_ids:0
-msgid "Messages"
-msgstr "Messages"
+#: field:house_booking.booking,advance_ratio:0
+msgid "Advance Ratio"
+msgstr "Pourcentage de l'acompte"
 
 #. module: house_booking
-#: field:house_booking.booking,website_message_ids:0
-msgid "Website Messages"
-msgstr "Website Messages"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Air conditioning in all three bedrooms works perfectly. Just to cool the room , the allumer15 minutes before , taking care to close the doors and windows. Do not abuse the air , any failure requiring the intervention of a technician who takes his time before moving !"
-msgstr "La climatisation dans le trois chambres fonctionne parfaitement. Pour rafraîchir une chambre, l'allumer 15 minutes avant en prenant soin de fermer portes et fenêtres. Il ne faut pas abuser de la climatisation, toute panne nécessitant l'intervention d'un technicien qui prend son temps avant de se déplacer !"
+#: field:house_booking.booking,advance_payment:0
+msgid "Advance payment"
+msgstr "Acompte"
 
 #. module: house_booking
 #: report:house_booking.voucher:0
-msgid "(Please return completed, dated, signed and accompanied by your deposit check)"
-msgstr "(A retourner complété, daté, signé et accompagné de votre chèque d'accompte)"
+msgid "Advance payment ("
+msgstr "Acompte ("
 
 #. module: house_booking
-#: help:house_booking.booking,message_unread:0
-msgid "If checked new messages require your attention."
-msgstr "If checked new messages require your attention."
+#: field:booking.config.settings,advance_payment:0
+msgid "Advance payment (%)"
+msgstr "Acompte (%)"
 
 #. module: house_booking
-#: view:house_booking.booking:0
-msgid "Accepted or pending"
-msgstr "Acceptées ou en attente"
+#: view:booking.config.settings:house_booking.view_booking_config_settings
+msgid "Apply"
+msgstr "Appliquer"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "VILLA 5 reservation – 3 air conditioned bedrooms"
-msgstr "VILLA 5 bon de réservation – 3 chambres climatisées"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Number of persons:"
-msgstr "Nombre de personnes :"
-
-#. module: house_booking
-#: help:house_booking.booking,message_summary:0
-msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
-msgstr "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
-
-#. module: house_booking
-#: model:ir.actions.act_window,name:house_booking.action_house_booking_booking
-msgid "Booking management"
-msgstr "Gestionnaire de réservation"
-
-#. module: house_booking
-#: model:ir.model,name:house_booking.model_house_booking_booking
-msgid "booking"
-msgstr "réservation"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-msgid "Partner"
-msgstr "Partenaires"
-
-#. module: house_booking
-#: code:addons/house_booking/booking.py:188
-#, python-format
-msgid "Booking price has to be set."
-msgstr "Booking price has to be set."
-
-#. module: house_booking
-#: view:house_booking.booking:0
-msgid "From"
-msgstr "De"
+#: selection:house_booking.booking,state:0
+msgid "Approved"
+msgstr "Approuvée"
 
 #. module: house_booking
 #: field:house_booking.booking,arrival_date:0
@@ -188,112 +125,9 @@ msgid "Arrival date"
 msgstr "Date d'arrivée"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Front of the keeper's house , and place the code. The access code is 23 46 A, used only to enter. There is a pedestrian gate : code 23 46. To exit the residence the gate opens automatically."
-msgstr "Devant la maison du gardien, vous trouverez undigicode. Le code d'accès est le 23 46 A, utilisable uniquement pour entrer. Il existe un portillon pour piétons : code 23 46. Pour sortir de la résidence, le portail s'ouvre automatiquement."
-
-#. module: house_booking
-#: code:addons/house_booking/booking.py:190
-#, python-format
-msgid "Booking <b>approved</b>"
-msgstr "Réservation <b>acceptée</b>"
-
-#. module: house_booking
-#: code:addons/house_booking/booking.py:144
-#, python-format
-msgid "Unavailable dates !"
-msgstr "Unavailable dates !"
-
-#. module: house_booking
-#: field:house_booking.booking,message_follower_ids:0
-msgid "Followers"
-msgstr "Followers"
-
-#. module: house_booking
-#: field:house_booking.booking,persons_number:0
-msgid "Number of Persons"
-msgstr "Nombre de personnes"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Booking dates:"
-msgstr "Dates de réservation:"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Phone:"
-msgstr "Téléphone :"
-
-#. module: house_booking
 #: field:house_booking.booking,arrival_day:0
 msgid "Arrival day"
-msgstr "Date d'arrivée"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Mr & Mme LEMIEGRE"
-msgstr "Mr & Mme LEMIEGRE"
-
-#. module: house_booking
-#: code:addons/house_booking/booking.py:188
-#, python-format
-msgid "Price not set !"
-msgstr "Price not set !"
-
-#. module: house_booking
-#: model:ir.actions.report.xml,name:house_booking.report_voucher
-msgid "English voucher"
-msgstr "Voucher en français"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "VERY GOOD HOLIDAY"
-msgstr "TRÈS BONNES VACANCES"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "€ two month before coming"
-msgstr "€ deux mois avant l'arrivée"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-msgid "Accepted"
-msgstr "Acceptée"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-msgid "Bookings list"
-msgstr "Liste des réservations"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Ruddy , pool , explain the operation of the pool lighting ."
-msgstr "Ruddy, piscinier, vousexpliquera le fonctionnement de l'éclairage de la piscine."
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Deposit:"
-msgstr "Caution :"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "To climb the stairs , the villa is left , yellow and green. It opens with the kitchen which is on the right side."
-msgstr "Pour monter les escaliers, la villa est à gauche, de couleur jaune et verte. Elle s'ouvre par la cuisine qui se trouve du côté droit"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "1000 € by check on arrival"
-msgstr "1000 € par chèque à la réservation"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Mme LANDAIS Jocelyne"
-msgstr "Mme LANDAIS Jocelyne"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "On your right is a large white gate with a round panel IGUANA BAY."
-msgstr "Sur votre droite se trouve une grande grille blanche avec un panneau rond IGUANA BAY."
+msgstr "Jour d'arrivée"
 
 #. module: house_booking
 #: field:house_booking.booking,balance_due:0
@@ -301,156 +135,50 @@ msgid "Balance due"
 msgstr "Solde"
 
 #. module: house_booking
-#: model:email.template,subject:house_booking.email_template_house_booking
-msgid "[Villa 5 Guadeloupe] Booking approved"
-msgstr "[Villa 5 Guadeloupe] Réservation approuvée"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Once past the gate , clean on the left, you can park in front of the villa number 5 ZAGADI ."
-msgstr "Une fois la grille passée, propres sur la gauche, vous garez devant la villa numéro 5 ZAGADI."
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Home : 02 35 84 09 96 - Cabinet: 02 35 06 36 36 - Mobile: 06 75 79 33 71"
-msgstr "Domicile : 02 35 84 09 96 - Cabinet: 02 35 06 36 36 - Mobile: 06 75 79 33 71"
-
-#. module: house_booking
-#: field:house_booking.booking,deposit:0
-msgid "Deposit"
-msgstr "Acompte"
-
-#. module: house_booking
-#: field:house_booking.booking,price:0
-msgid "Price of booking"
-msgstr "Prix de la réservation"
-
-#. module: house_booking
-#: field:house_booking.booking,departure_date:0
-msgid "Departure date"
-msgstr "Date de départ"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-#: selection:house_booking.booking,state:0
-msgid "Denied"
-msgstr "Refusée"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "The telephone number of the villa is 05 90 88 77 25 limited to local calls ."
-msgstr "Le numéro de téléphone de la villa est 05 90 88 77 25 limité aux appels locaux."
-
-#. module: house_booking
-#: view:house_booking.booking:0
-#: selection:house_booking.booking,state:0
-msgid "Pending"
-msgstr "En attente"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-msgid "Accept booking"
-msgstr "Réservation acceptée"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "from"
-msgstr "du"
-
-#. module: house_booking
 #: report:house_booking.voucher:0
 msgid "Balance:"
 msgstr "Solde :"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Mr ou Mme LEMIEGRE (propriétaire)"
-msgstr "Mr ou Mme LEMIEGRE (propriétaire)"
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
+#: model:ir.ui.menu,name:house_booking.menu_booking_config
+#: model:ir.ui.menu,name:house_booking.menu_booking_configs
+msgid "Booking"
+msgstr "Réservation"
+
+#. module: house_booking
+#: code:addons/house_booking/booking.py:250
+#, python-format
+msgid "Booking <b>approved</b>"
+msgstr "Réservation <b>acceptée</b>"
+
+#. module: house_booking
+#: code:addons/house_booking/booking.py:267
+#, python-format
+msgid "Booking <b>denied</b>"
+msgstr "Réservation <b>refusée</b>"
 
 #. module: house_booking
 #: report:house_booking.voucher:0
-msgid "57 lot les Colibris"
-msgstr "57 lot les Colibris"
+msgid "Booking dates:"
+msgstr "Dates de réservation :"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "You get it back 10 days after leaving, exect degradation"
-msgstr "Restitué 10 jours après le départ, sauf dégradation"
+#: view:booking.config.settings:house_booking.view_booking_config_settings
+#: model:ir.actions.act_window,name:house_booking.action_house_booking_booking
+msgid "Booking management"
+msgstr "Gestion de réservation"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Check to:"
-msgstr "Chèque à libeller à l'ordre de :"
+#: code:addons/house_booking/booking.py:248
+#, python-format
+msgid "Booking price has to be set."
+msgstr "Le prix de la réservation doit être saisi."
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Contact us our phone in France is :"
-msgstr "Pour joindre notre téléphone en France :"
-
-#. module: house_booking
-#: field:house_booking.booking,message_is_follower:0
-msgid "Is a Follower"
-msgstr "Is a Follower"
-
-#. module: house_booking
-#: field:house_booking.booking,departure_day:0
-msgid "Departure day"
-msgstr "Departure day"
-
-#. module: house_booking
-#: sql_constraint:house_booking.booking:0
-msgid "'Arrival day' should be before 'Departure day'"
-msgstr "La date d'arrivée doit être avant la date de départ"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "For contact : Mobile:"
-msgstr "Pour les contacter : Mobile:"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "free"
-msgstr "offert"
-
-#. module: house_booking
-#: field:house_booking.booking,create_date:0
-msgid "Creation date"
-msgstr "Date de création"
-
-#. module: house_booking
-#: field:house_booking.booking,message_summary:0
-msgid "Summary"
-msgstr "Summary"
-
-#. module: house_booking
-#: field:house_booking.booking,partner_id:0
-msgid "Client"
-msgstr "Client"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "You can also turn on the two fans in the ceiling in the main room . The switch is located next to the table in the dining room , next to the curtain."
-msgstr "Vous pouvez en outre allumer les deux ventilateurs situés au plafond dans la pièce principale.  L'interrupteur se trouve à côté de la table de la samme à manget, près du rideau."
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Rate:"
-msgstr "Tarif :"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "€ by check when booking"
-msgstr "€ par chèque à la reservation"
-
-#. module: house_booking
-#: view:house_booking.booking:0
-msgid "Bookings calendar"
-msgstr "Calendrier des réservations"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "The city five or six hours ahead of Guadeloupe, or when it is 12:00 in Guadeloupe , it is already 17 or 18 hours depending on the season metropolis ."
-msgstr "La métropole a cinq ou six heures d'avance sur la Guadeloupe. Lorsqu'il est 12 heures en Guadeloupe, il est déjà 17 ou 18 heures en métropole selon la saison."
+#: field:house_booking.booking,state:0
+msgid "Booking's state"
+msgstr "Statut de la réservation"
 
 #. module: house_booking
 #: model:ir.ui.menu,name:house_booking.menu_booking_main
@@ -459,50 +187,14 @@ msgid "Bookings"
 msgstr "Réservations"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "They will also give you all the advice you want ( beach, sightseeing , restaurants , attractions , etc.)."
-msgstr "Ils vous donneront également tous les conseils que vous souhaitez (place, visite, restaurants, sorties, etc..)."
+#: view:house_booking.booking:house_booking.view_house_booking_booking_calendar
+msgid "Bookings calendar"
+msgstr "Calendrier des réservations"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "97118 SAINT-FRANÇOIS"
-msgstr "97118 SAINT-FRANÇOIS"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Useful informations:"
-msgstr "Renseignements utiles :"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Let me recall that for young children , only the constant vigilance of parents can prevent accidents."
-msgstr "Je me permet de rappeler que pour les enfants en bas âge, seule la vigilance sans relâche des parents peut prévenir tout accident."
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Good for agreement: date and tenant's signature"
-msgstr "Bon pour accord : date et signature du locataire"
-
-#. module: house_booking
-#: code:addons/house_booking/booking.py:144
-#, python-format
-msgid "Unable to book for the selected dates."
-msgstr "Unable to book for the selected dates."
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Details"
-msgstr "Détails"
-
-#. module: house_booking
-#: field:house_booking.booking,state:0
-msgid "Booking's state"
-msgstr "Statut de la réservation"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Kit 1st breakfast:"
-msgstr "Kit 1er petit déjeuner :"
+#: view:house_booking.booking:house_booking.view_house_booking_booking_tree
+msgid "Bookings list"
+msgstr "Liste des réservations"
 
 #. module: house_booking
 #: model:res.groups,name:house_booking.group_booking_manager
@@ -510,19 +202,229 @@ msgid "Bookings manager"
 msgstr "Gestionnaire de réservation"
 
 #. module: house_booking
-#: view:house_booking.booking:0
+#: view:booking.config.settings:house_booking.view_booking_config_settings
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "Check to:"
+msgstr "Chèque à libeller à l'ordre de :"
+
+#. module: house_booking
+#: field:house_booking.booking,partner_id:0
+msgid "Client"
+msgstr "Client"
+
+#. module: house_booking
+#: view:booking.config.settings:house_booking.view_booking_config_settings
+#: model:ir.actions.act_window,name:house_booking.action_booking_config
+msgid "Configure Booking"
+msgstr "Configurer les réservations"
+
+#. module: house_booking
+#: view:booking.config.settings:house_booking.view_booking_config_settings
+msgid "Configure Voucher"
+msgstr "Configurer le voucher"
+
+#. module: house_booking
+#: field:booking.config.settings,create_uid:0
+#: field:house_booking.booking,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: house_booking
+#: field:booking.config.settings,create_date:0
+#: field:house_booking.booking,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
+msgid "Créé le"
+msgstr "Créé le"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
+msgid "Customer information"
+msgstr "informations sur le client"
+
+#. module: house_booking
+#: help:house_booking.booking,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Date du dernier message posté sur l'enregistrement courant."
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_filter
+#: selection:house_booking.booking,state:0
+msgid "Denied"
+msgstr "Refusée"
+
+#. module: house_booking
+#: field:house_booking.booking,departure_date:0
+msgid "Departure date"
+msgstr "Date de départ"
+
+#. module: house_booking
+#: field:house_booking.booking,departure_day:0
+msgid "Departure day"
+msgstr "Jour de depart"
+
+#. module: house_booking
+#: field:booking.config.settings,deposit:0
+#: field:house_booking.booking,deposit:0
+msgid "Deposit"
+msgstr "Caution"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "Deposit:"
+msgstr "Caution :"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "Email:"
+msgstr "Email :"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_filter
+msgid "Filter bookings"
+msgstr "Filtrer les réservations"
+
+#. module: house_booking
+#: field:house_booking.booking,message_follower_ids:0
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
+msgid "From"
+msgstr "Du"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "Good for agreement: date and tenant's signature"
+msgstr "Bon pour accord : date et signature du locataire"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_filter
+msgid "Group by ..."
+msgstr "Grouper par ..."
+
+#. module: house_booking
+#: help:house_booking.booking,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Contient le résumé du chat (nombre de message, ...). Ce résumé est directement en HTML afin de pouvoir être inséré dans les vues de type kanban."
+
+#. module: house_booking
+#: field:booking.config.settings,id:0
+#: field:house_booking.booking,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: house_booking
+#: help:house_booking.booking,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Si coché, de nouveaux messages requièrent votre attention."
+
+#. module: house_booking
+#: model:email.template,report_name:house_booking.email_template_house_booking
+msgid "InsPyration - Booking"
+msgstr "InsPyration - Réservation"
+
+#. module: house_booking
+#: field:house_booking.booking,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Est abonné"
+
+#. module: house_booking
+#: field:house_booking.booking,message_last_post:0
+msgid "Last Message Date"
+msgstr "Date du dernier message"
+
+#. module: house_booking
+#: field:booking.config.settings,write_uid:0
+#: field:house_booking.booking,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: house_booking
+#: field:booking.config.settings,write_date:0
+#: field:house_booking.booking,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: house_booking
+#: field:house_booking.booking,message_ids:0
+msgid "Messages"
+msgstr "Messages"
+
+#. module: house_booking
+#: help:house_booking.booking,message_ids:0
+msgid "Messages and communication history"
+msgstr "Messages and historique de la communication"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
+msgid "Name of booking"
+msgstr "Nom de la réservation"
+
+#. module: house_booking
+#: field:house_booking.booking,persons_number:0
+msgid "Number of Persons"
+msgstr "Nombre de personnes"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "Number of persons:"
+msgstr "Nombre de personnes :"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_filter
+msgid "Partner"
+msgstr "Partenaires"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
+msgid "Payment information"
+msgstr "Information sur le paiement"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "Payment terms:"
+msgstr "Conditions de paiements :"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_filter
+#: selection:house_booking.booking,state:0
+msgid "Pending"
+msgstr "En attente"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "Phone:"
+msgstr "Téléphone :"
+
+#. module: house_booking
+#: code:addons/house_booking/booking.py:248
+#, python-format
+msgid "Price not set !"
+msgstr "Le prix n'est pas renseigné !"
+
+#. module: house_booking
+#: field:house_booking.booking,price:0
+msgid "Price of booking"
+msgstr "Prix de la réservation"
+
+#. module: house_booking
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
 msgid "Print Voucher"
 msgstr "Imprimer le bon de réservation"
 
 #. module: house_booking
-#: view:house_booking.booking:0
+#: view:house_booking.booking:house_booking.view_house_booking_booking_form
 msgid "Refuse booking"
-msgstr "Réservation refusée"
-
-#. module: house_booking
-#: report:house_booking.voucher:0
-msgid "I recommend the guide book is excellent."
-msgstr "Je vous recommande le guide du routard, il est excellent."
+msgstr "Refuser la réservation"
 
 #. module: house_booking
 #: report:house_booking.voucher:0
@@ -530,59 +432,114 @@ msgid "Reservation information:"
 msgstr "Informations sur la réservation :"
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "Advance payment 30%:"
-msgstr "Accompte 30% :"
+#: field:house_booking.booking,message_summary:0
+msgid "Summary"
+msgstr "Résumé"
+
+#. module: house_booking
+#: view:booking.config.settings:house_booking.view_booking_config_settings
+msgid "Test"
+msgstr "Test"
+
+#. module: house_booking
+#: field:house_booking.booking,name:0
+msgid "Title"
+msgstr "Titre"
 
 #. module: house_booking
 #: report:house_booking.voucher:0
-msgid "Do not forget to close vollets and windows, not only in your absence , but also the night."
-msgstr "Surtout, n'oubliez pas de fermet vollets et fenêtres, non seulement en votre absence mais également la nuit."
+msgid "Total price:"
+msgstr "Price total :"
 
 #. module: house_booking
-#: help:house_booking.booking,website_message_ids:0
-msgid "Website communication history"
-msgstr "Website communication history"
+#: code:addons/house_booking/booking.py:208
+#, python-format
+msgid "Unable to book for the selected dates."
+msgstr "Inpossible de réserver pour les dates sélectionnées."
 
 #. module: house_booking
-#: report:house_booking.voucher:0
-msgid "In case of problems , please contact the caretaker, Mr. Jacques VULGAR who lives in the house at home with his family. It is available every morning for the resident , and in the evening also ."
-msgstr "En cas de problème, adressez-vous au gardien, Monsieur Jacques VULGAIRE qui vit dans la maison à l'accueil avec sa famille. Il est disponible tous les matins pour le résident, et le soir également."
+#: code:addons/house_booking/booking.py:208
+#, python-format
+msgid "Unavailable dates !"
+msgstr "Les dates ne sont pas disponibles !"
 
 #. module: house_booking
-#: help:house_booking.booking,message_ids:0
-msgid "Messages and communication history"
-msgstr "Messages and communication history"
+#: field:house_booking.booking,message_unread:0
+msgid "Unread Messages"
+msgstr "Messages non-lus"
 
 #. module: house_booking
-#: view:house_booking.booking:0
-msgid "Filter bookings"
-msgstr "Filtres"
-
-#. module: house_booking
-#: view:house_booking.booking:0
+#: view:house_booking.booking:house_booking.view_house_booking_booking_filter
 msgid "Upcoming"
 msgstr "À venir"
 
 #. module: house_booking
-#: view:house_booking.booking:0
-msgid "Group by ..."
-msgstr "Group by ..."
+#: model:ir.actions.report.xml,name:house_booking.report_voucher
+msgid "Voucher"
+msgstr "Voucher"
 
 #. module: house_booking
-#: model:ir.actions.act_window,help:house_booking.action_house_booking_booking
-msgid "<p class=\"oe_view_nocontent_create\">Create yout first booking!</p>\n"
-"            "
-msgstr "<p class=\"oe_view_nocontent_create\">Créez votre première réservation !</p>\n"
-"            "
+#: field:booking.config.settings,booking_title:0
+msgid "Voucher title"
+msgstr "Titre du voucher"
 
 #. module: house_booking
-#: sql_constraint:house_booking.booking:0
-msgid "'Arrival date' should be before 'Departure date'"
-msgstr "La date d'arrivée doit être avant la date de départ"
+#: field:house_booking.booking,voucher_title:0
+msgid "Voucher's title"
+msgstr "Titre du voucher"
+
+#. module: house_booking
+#: field:house_booking.booking,website_message_ids:0
+msgid "Website Messages"
+msgstr "Messages du site web"
+
+#. module: house_booking
+#: help:house_booking.booking,website_message_ids:0
+msgid "Website communication history"
+msgstr "Historique de communication du site Web"
 
 #. module: house_booking
 #: report:house_booking.voucher:0
-msgid "Email:"
-msgstr "Email :"
+msgid "Your contact information:"
+msgstr "Vos informations personnelles :"
+
+#. module: house_booking
+#: model:email.template,subject:house_booking.email_template_house_booking
+msgid "[Demonstration Booking site] Booking approved"
+msgstr "[Site de réservation de démonstration] Réservation approuvée"
+
+#. module: house_booking
+#: model:ir.model,name:house_booking.model_house_booking_booking
+msgid "booking"
+msgstr "réservation"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "from"
+msgstr "du"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "to"
+msgstr "au"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "€"
+msgstr "€"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "€ by check on arrival"
+msgstr "€ par chèque à la réservation"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "€ by check, attached to this document"
+msgstr "€ par chèque, joint à ce document"
+
+#. module: house_booking
+#: report:house_booking.voucher:0
+msgid "€ two month before coming"
+msgstr "€ deux mois avant l'arrivée"
 

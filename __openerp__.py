@@ -2,13 +2,26 @@
 
 {
     'name' : 'Booking management',
-    'version' : '1.1',
+    'version' : '1.2',
     'author' : 'Alicia FLOREZ & Sébastien CHAZALLET',
     'category': 'Sales Management',
-    'summary': 'Management of House, Guestrooms or hotel bookings.',
+    'summary': 'Management of house, guestroom or hotel bookings.',
     'description' : """
-        Management of House, Guestrooms or hotel booking.
-    """,
+Manage your bookings
+====================
+
+This module is used by :
+
+- hotels
+- guest houses
+- guest rooms
+
+Manage rental schedule, bookings, arrivals and departure.
+
+Use it with its WebSite App and allow your customers to rent online !
+
+    In further versions, will manage quotations, invoices, and seasons.
+""",
     'website': 'http://www.inspyration.fr',
     'images' : [],
     'depends' : ['base', 'mail', 'crm'],
@@ -32,4 +45,5 @@
     ],
     'installable': True,
     'auto_install': False,
+    'application': True,
 }

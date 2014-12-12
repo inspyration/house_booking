@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+
+        <!-- Configuration form -->
+
         <record id="view_booking_config_settings" model="ir.ui.view">
             <field name="name">Booking Settings</field>
             <field name="model">booking.config.settings</field>
@@ -12,7 +15,7 @@
                         or
                         <button string="Cancel" type="object" name="cancel" class="oe_link"/>
                     </header>
-                    <separator string="Booking Management"/>
+                    <separator string="Booking management"/>
                     <group>
                         <label for="id" string="Test"/>
                         <div>
@@ -21,8 +24,8 @@
                                 <field name="booking_title" class="oe_inline"/>
                             </div>
                             <div>
-                                <label for="guarantee"/>
-                                <field name="guarantee" class="oe_inline"/>
+                                <label for="advance_payment"/>
+                                <field name="advance_payment" class="oe_inline"/>
                             </div>
                             <div>
                                 <label for="deposit"/>
@@ -35,8 +38,9 @@
             </field>
         </record>
 
-        
+
         <!-- Actions -->
+
         <record id="action_booking_config" model="ir.actions.act_window">
             <field name="name">Configure Booking</field>
             <field name="type">ir.actions.act_window</field>
@@ -45,7 +49,9 @@
             <field name="target">inline</field>
         </record>
 
+
         <!-- Menus -->
+
         <menuitem id="menu_booking_config"
             name="Booking"
             parent="base.menu_config"
