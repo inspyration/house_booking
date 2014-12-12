@@ -7,6 +7,7 @@ from openerp.tools.translate import _
 
 import operator
 
+
 class booking(osv.Model):
     _name = "house_booking.booking"
     _description = "booking"

@@ -26,7 +26,7 @@ msgid "Villa 5 Guadeloupe - Booking"
 msgstr "Villa 5 Guadeloupe - Booking"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Your contact:"
 msgstr "Vos coordonnées :"
 
@@ -48,7 +48,7 @@ msgstr "Réservation"
 
 #. module: house_booking
 #: view:house_booking.booking:0
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "to"
 msgstr "au"
 
@@ -81,12 +81,12 @@ msgstr "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-
 "</div>"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Virginie SAINT-ETIENNE and her husband await you on the spot to explain the operation of the home alarm , alarm pool for handing the keys , establish an inventory input , receive the deposit check € 1,000 which you will exit if no damage is found ."
-msgstr "Virginie SAINT-ETIENNE and her husband await you on the spot to explain the operation of the home alarm , alarm pool for handing the keys , establish an inventory input , receive the deposit check € 1,000 which you will exit if no damage is found ."
+msgstr "Virginie SAINT-ETIENNE et son mari vous attendront sur les lieux pour vous expliquer le fonctionnement de l'alarme maison, de l'alarme piscine, pour vous remettre les clés, établir l'état des lieux d'entrée et recevoir le chèque de caution de 1000 € qui vous sera rendu après état des lieux de sortie."
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Term of payment:"
 msgstr "Conditions de réglement :"
 
@@ -97,19 +97,19 @@ msgstr "Approuvée"
 
 #. module: house_booking
 #: view:house_booking.booking:0
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "€"
 msgstr "€"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "06 90 53 06 22"
 msgstr "06 90 53 06 22"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Address to send advance payment and balance:"
-msgstr "Adresse où envoyer l'accompte et le solde :"
+msgstr "Adresse où envoyer l'acompte et le solde :"
 
 #. module: house_booking
 #: field:house_booking.booking,message_ids:0
@@ -122,14 +122,14 @@ msgid "Website Messages"
 msgstr "Website Messages"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Air conditioning in all three bedrooms works perfectly. Just to cool the room , the allumer15 minutes before , taking care to close the doors and windows. Do not abuse the air , any failure requiring the intervention of a technician who takes his time before moving !"
-msgstr "Air conditioning in all three bedrooms works perfectly. Just to cool the room , the allumer15 minutes before , taking care to close the doors and windows. Do not abuse the air , any failure requiring the intervention of a technician who takes his time before moving !"
+msgstr "La climatisation dans le trois chambres fonctionne parfaitement. Pour rafraîchir une chambre, l'allumer 15 minutes avant en prenant soin de fermer portes et fenêtres. Il ne faut pas abuser de la climatisation, toute panne nécessitant l'intervention d'un technicien qui prend son temps avant de se déplacer !"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "(Please return completed, dated, signed and accompanied by your deposit check)"
-msgstr "(Please return completed, dated, signed and accompanied by your deposit check)"
+msgstr "(A retourner complété, daté, signé et accompagné de votre chèque d'accompte)"
 
 #. module: house_booking
 #: help:house_booking.booking,message_unread:0
@@ -142,12 +142,12 @@ msgid "Accepted or pending"
 msgstr "Acceptées ou en attente"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "VILLA 5 reservation – 3 air conditioned bedrooms"
 msgstr "VILLA 5 bon de réservation – 3 chambres climatisées"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Number of persons:"
 msgstr "Nombre de personnes :"
 
@@ -188,9 +188,9 @@ msgid "Arrival date"
 msgstr "Date d'arrivée"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Front of the keeper's house , and place the code. The access code is 23 46 A, used only to enter. There is a pedestrian gate : code 23 46. To exit the residence the gate opens automatically."
-msgstr "Front of the keeper's house , and place the code. The access code is 23 46 A, used only to enter. There is a pedestrian gate : code 23 46. To exit the residence the gate opens automatically."
+msgstr "Devant la maison du gardien, vous trouverez undigicode. Le code d'accès est le 23 46 A, utilisable uniquement pour entrer. Il existe un portillon pour piétons : code 23 46. Pour sortir de la résidence, le portail s'ouvre automatiquement."
 
 #. module: house_booking
 #: code:addons/house_booking/booking.py:190
@@ -215,12 +215,12 @@ msgid "Number of Persons"
 msgstr "Nombre de personnes"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Booking dates:"
-msgstr "Booking dates:"
+msgstr "Dates de réservation:"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Phone:"
 msgstr "Téléphone :"
 
@@ -230,7 +230,7 @@ msgid "Arrival day"
 msgstr "Date d'arrivée"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Mr & Mme LEMIEGRE"
 msgstr "Mr & Mme LEMIEGRE"
 
@@ -241,17 +241,17 @@ msgid "Price not set !"
 msgstr "Price not set !"
 
 #. module: house_booking
-#: model:ir.actions.report.xml,name:house_booking.report_voucher_en
+#: model:ir.actions.report.xml,name:house_booking.report_voucher
 msgid "English voucher"
-msgstr "English voucher"
+msgstr "Voucher en français"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "VERY GOOD HOLIDAY"
-msgstr "VERY GOOD HOLIDAY"
+msgstr "TRÈS BONNES VACANCES"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "€ two month before coming"
 msgstr "€ deux mois avant l'arrivée"
 
@@ -266,32 +266,32 @@ msgid "Bookings list"
 msgstr "Liste des réservations"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Ruddy , pool , explain the operation of the pool lighting ."
-msgstr "Ruddy , pool , explain the operation of the pool lighting ."
+msgstr "Ruddy, piscinier, vousexpliquera le fonctionnement de l'éclairage de la piscine."
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Deposit:"
 msgstr "Caution :"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "To climb the stairs , the villa is left , yellow and green. It opens with the kitchen which is on the right side."
-msgstr "To climb the stairs , the villa is left , yellow and green. It opens with the kitchen which is on the right side."
+msgstr "Pour monter les escaliers, la villa est à gauche, de couleur jaune et verte. Elle s'ouvre par la cuisine qui se trouve du côté droit"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "1000 € by check on arrival"
-msgstr "1000 € par chèque à la reservation"
+msgstr "1000 € par chèque à la réservation"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Mme LANDAIS Jocelyne"
 msgstr "Mme LANDAIS Jocelyne"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "On your right is a large white gate with a round panel IGUANA BAY."
 msgstr "Sur votre droite se trouve une grande grille blanche avec un panneau rond IGUANA BAY."
 
@@ -303,17 +303,17 @@ msgstr "Solde"
 #. module: house_booking
 #: model:email.template,subject:house_booking.email_template_house_booking
 msgid "[Villa 5 Guadeloupe] Booking approved"
-msgstr "[Villa 5 Guadeloupe] Booking approved"
+msgstr "[Villa 5 Guadeloupe] Réservation approuvée"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Once past the gate , clean on the left, you can park in front of the villa number 5 ZAGADI ."
-msgstr "Once past the gate , clean on the left, you can park in front of the villa number 5 ZAGADI ."
+msgstr "Une fois la grille passée, propres sur la gauche, vous garez devant la villa numéro 5 ZAGADI."
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Home : 02 35 84 09 96 - Cabinet: 02 35 06 36 36 - Mobile: 06 75 79 33 71"
-msgstr "Home : 02 35 84 09 96 - Cabinet: 02 35 06 36 36 - Mobile: 06 75 79 33 71"
+msgstr "Domicile : 02 35 84 09 96 - Cabinet: 02 35 06 36 36 - Mobile: 06 75 79 33 71"
 
 #. module: house_booking
 #: field:house_booking.booking,deposit:0
@@ -337,9 +337,9 @@ msgid "Denied"
 msgstr "Refusée"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "The telephone number of the villa is 05 90 88 77 25 limited to local calls ."
-msgstr "The telephone number of the villa is 05 90 88 77 25 limited to local calls ."
+msgstr "Le numéro de téléphone de la villa est 05 90 88 77 25 limité aux appels locaux."
 
 #. module: house_booking
 #: view:house_booking.booking:0
@@ -353,39 +353,39 @@ msgid "Accept booking"
 msgstr "Réservation acceptée"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "from"
-msgstr "from"
+msgstr "du"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Balance:"
 msgstr "Solde :"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Mr ou Mme LEMIEGRE (propriétaire)"
 msgstr "Mr ou Mme LEMIEGRE (propriétaire)"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "57 lot les Colibris"
 msgstr "57 lot les Colibris"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "You get it back 10 days after leaving, exect degradation"
 msgstr "Restitué 10 jours après le départ, sauf dégradation"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Check to:"
 msgstr "Chèque à libeller à l'ordre de :"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Contact us our phone in France is :"
-msgstr "Contact us our phone in France is :"
+msgstr "Pour joindre notre téléphone en France :"
 
 #. module: house_booking
 #: field:house_booking.booking,message_is_follower:0
@@ -403,12 +403,12 @@ msgid "'Arrival day' should be before 'Departure day'"
 msgstr "La date d'arrivée doit être avant la date de départ"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "For contact : Mobile:"
-msgstr "For contact : Mobile:"
+msgstr "Pour les contacter : Mobile:"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "free"
 msgstr "offert"
 
@@ -428,17 +428,17 @@ msgid "Client"
 msgstr "Client"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "You can also turn on the two fans in the ceiling in the main room . The switch is located next to the table in the dining room , next to the curtain."
-msgstr "You can also turn on the two fans in the ceiling in the main room . The switch is located next to the table in the dining room , next to the curtain."
+msgstr "Vous pouvez en outre allumer les deux ventilateurs situés au plafond dans la pièce principale.  L'interrupteur se trouve à côté de la table de la samme à manget, près du rideau."
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Rate:"
 msgstr "Tarif :"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "€ by check when booking"
 msgstr "€ par chèque à la reservation"
 
@@ -448,9 +448,9 @@ msgid "Bookings calendar"
 msgstr "Calendrier des réservations"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "The city five or six hours ahead of Guadeloupe, or when it is 12:00 in Guadeloupe , it is already 17 or 18 hours depending on the season metropolis ."
-msgstr "The city five or six hours ahead of Guadeloupe, or when it is 12:00 in Guadeloupe , it is already 17 or 18 hours depending on the season metropolis ."
+msgstr "La métropole a cinq ou six heures d'avance sur la Guadeloupe. Lorsqu'il est 12 heures en Guadeloupe, il est déjà 17 ou 18 heures en métropole selon la saison."
 
 #. module: house_booking
 #: model:ir.ui.menu,name:house_booking.menu_booking_main
@@ -459,27 +459,27 @@ msgid "Bookings"
 msgstr "Réservations"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "They will also give you all the advice you want ( beach, sightseeing , restaurants , attractions , etc.)."
-msgstr "They will also give you all the advice you want ( beach, sightseeing , restaurants , attractions , etc.)."
+msgstr "Ils vous donneront également tous les conseils que vous souhaitez (place, visite, restaurants, sorties, etc..)."
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "97118 SAINT-FRANÇOIS"
 msgstr "97118 SAINT-FRANÇOIS"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Useful informations:"
 msgstr "Renseignements utiles :"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Let me recall that for young children , only the constant vigilance of parents can prevent accidents."
-msgstr "Let me recall that for young children , only the constant vigilance of parents can prevent accidents."
+msgstr "Je me permet de rappeler que pour les enfants en bas âge, seule la vigilance sans relâche des parents peut prévenir tout accident."
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Good for agreement: date and tenant's signature"
 msgstr "Bon pour accord : date et signature du locataire"
 
@@ -490,7 +490,7 @@ msgid "Unable to book for the selected dates."
 msgstr "Unable to book for the selected dates."
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Details"
 msgstr "Détails"
 
@@ -500,14 +500,14 @@ msgid "Booking's state"
 msgstr "Statut de la réservation"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Kit 1st breakfast:"
 msgstr "Kit 1er petit déjeuner :"
 
 #. module: house_booking
 #: model:res.groups,name:house_booking.group_booking_manager
 msgid "Bookings manager"
-msgstr "Gestionnaire des réservation"
+msgstr "Gestionnaire de réservation"
 
 #. module: house_booking
 #: view:house_booking.booking:0
@@ -520,24 +520,24 @@ msgid "Refuse booking"
 msgstr "Réservation refusée"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "I recommend the guide book is excellent."
-msgstr "I recommend the guide book is excellent."
+msgstr "Je vous recommande le guide du routard, il est excellent."
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Reservation information:"
 msgstr "Informations sur la réservation :"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Advance payment 30%:"
 msgstr "Accompte 30% :"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Do not forget to close vollets and windows, not only in your absence , but also the night."
-msgstr "Do not forget to close vollets and windows, not only in your absence , but also the night."
+msgstr "Surtout, n'oubliez pas de fermet vollets et fenêtres, non seulement en votre absence mais également la nuit."
 
 #. module: house_booking
 #: help:house_booking.booking,website_message_ids:0
@@ -545,9 +545,9 @@ msgid "Website communication history"
 msgstr "Website communication history"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "In case of problems , please contact the caretaker, Mr. Jacques VULGAR who lives in the house at home with his family. It is available every morning for the resident , and in the evening also ."
-msgstr "In case of problems , please contact the caretaker, Mr. Jacques VULGAR who lives in the house at home with his family. It is available every morning for the resident , and in the evening also ."
+msgstr "En cas de problème, adressez-vous au gardien, Monsieur Jacques VULGAIRE qui vit dans la maison à l'accueil avec sa famille. Il est disponible tous les matins pour le résident, et le soir également."
 
 #. module: house_booking
 #: help:house_booking.booking,message_ids:0
@@ -582,7 +582,7 @@ msgid "'Arrival date' should be before 'Departure date'"
 msgstr "La date d'arrivée doit être avant la date de départ"
 
 #. module: house_booking
-#: report:house_booking.voucher.en:0
+#: report:house_booking.voucher:0
 msgid "Email:"
 msgstr "Email :"
 
